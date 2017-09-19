@@ -1,0 +1,12 @@
+{
+  "name": "indecisionapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bdurb/indecisionapp.git",
+  "author": "bdurb",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1"
+  }
+}
