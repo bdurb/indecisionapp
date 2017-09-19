@@ -2,7 +2,8 @@
 
 var app = {
   title: 'Danjgo',
-  subtitle: 'Unchained'
+  subtitle: 'Unchained',
+  options: ['One', 'Two']
 };
 
 var template = React.createElement(
@@ -13,10 +14,15 @@ var template = React.createElement(
     null,
     app.title
   ),
-  React.createElement(
+  app.subtitle && React.createElement(
     'p',
     null,
     app.subtitle
+  ),
+  React.createElement(
+    'p',
+    null,
+    app.options.length > 0 ? 'Here are your options' : 'No options'
   )
 );
 
@@ -53,4 +59,4 @@ var templateTwo = React.createElement(
 );
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);

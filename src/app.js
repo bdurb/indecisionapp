@@ -1,13 +1,15 @@
 
 var app = {
   title: 'Danjgo',
-  subtitle: 'Unchained'
+  subtitle: 'Unchained',
+  options: ['One', 'Two']
 };
 
 var template = (
   <div>
     <h1>{ app.title }</h1>
-    <p>{ app.subtitle }</p>
+    {app.subtitle && <p>{app.subtitle}</p>}
+    <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
   </div>
 );
 
@@ -30,4 +32,4 @@ var templateTwo = (
 );
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
