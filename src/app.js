@@ -1,59 +1,66 @@
 
-const app = {
-  title: 'Danjgo',
-  subtitle: 'Unchained',
-  options: []
-};
-
-const onFormSubmit = (e) => {
-  e.preventDefault();
-
-  const option = e.target.elements.option.value;
-
-  if (option) {
-    app.options.push(option);
-    e.target.elements.option.value = '';
-    render();
+class IndecisionApp extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header title="Test Value"/>
+        <Action />
+        <Options />
+        <AddOptions />
+      </div>
+    );
   }
 }
 
-const onRemoveAll = () => {
-  app.options = [];
-  render();
-};
-
-const onMakeDecision = () => {
-  const randomNum = Math.floor(Math.random() * app.options.length);
-  const option = app.options[randomNum];
-  alert(option);
+class Header extends React.Component {
+  render() {
+    this.props
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        <h2>Put your life in the hands of a computer</h2>
+      </div>
+    );
+  }
 }
 
-const appRoot = document.getElementById('app');
+class Action extends React.Component {
+  render() {
+    return (
+      <button>What should I do?</button>
+    );
+  }
+}
 
+class Options extends React.Component {
+  render() {
+    return(
+      <div>
+       some options
+       <Option />
+     </div>
+    );
+  }
+}
 
-const render = () => {
-  const template = (
-    <div>
-      <h1>{app.title}</h1>
-      {app.subtitle && <p>{app.subtitle}</p>}
-      <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
-      <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
-      <button onClick={onRemoveAll}>Remove All</button>
-      <ol>
-        {
-          app.options.map((list) => {
-            return <li key={list}>{list}</li>
-          })
-        }
-      </ol>
-      <form onSubmit={onFormSubmit}>
-        <input type="text" name="option"/>
-        <button>Add Option</button>
-      </form>
-    </div>
-  );
+class Option extends React.Component {
+  render() {
+    return(
+      <div>
+        We be options
+      </div>
+    );
+  }
+}
 
-  ReactDOM.render(template, appRoot);
-};
+class AddOptions  extends React.Component {
+  render() {
+    return (
+      <div>
+        Add some Options
+      </div>
+    );
+  }
+}
 
-render();
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
