@@ -1,4 +1,3 @@
-import { square, add } from './utils.js';
+import validator from 'validator';
 
-console.log(square(4));
-console.log(add(4, 7));
+console.log(validator.isEmail('test@gmail.com'));
